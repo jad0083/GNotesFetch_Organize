@@ -2,6 +2,8 @@
 
 A Google Apps Script pipeline that automatically extracts email attachments and linked Google Workspace files from Gmail, then sorts them into categorized Google Drive folders using configurable keyword filters.
 
+Ready to set it up? Jump straight to the **[deployment walkthrough](walkthrough.md)**.
+
 ## The Problem
 
 If you use services like Google Gemini Notes, shared Docs, or any workflow that sends files and links to your inbox, those files pile up fast. They sit buried in email threads, and the only way to get them into Drive is to open each one, click download or "Add to Drive," and manually drag it into the right folder. Do that across dozens of emails a week and it becomes a chore you stop doing — which means important docs get lost in your inbox.
