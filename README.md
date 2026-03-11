@@ -14,8 +14,8 @@ This project closes that gap with three scripts that form a two-stage pipeline:
 
 **Stage 1 — Ingestion** pulls files out of Gmail and into a Drive staging folder. Two scripts handle this, each targeting emails differently:
 
-- `EmailtoDrive_Sender.gs` — Targets a specific sender (e.g., `gemini-notes@google.com`). Grabs all physical attachments (PDFs, images, Office files) and copies any linked Google Workspace files (Docs, Sheets, Slides) directly into Drive.
-- `EmailtoDrive_Subject.gs` — Targets emails by subject line keywords (e.g., "Document shared with you:"). Same extraction logic, different filter. Useful for catching shared docs from multiple senders.
+- `EmailtoDrive_Sender.gs` — Targets a specific sender (configurable). Grabs all physical attachments (PDFs, images, Office files) and copies any linked Google Workspace files (Docs, Sheets, Slides) directly into Drive.
+- `EmailtoDrive_Subject.gs` — Targets emails by subject line keywords (configurable). Same extraction logic, different filter. Useful for catching shared docs from multiple senders.
 
 Both scripts label processed threads to avoid re-processing, handle deduplication by filename, and process in small batches to stay within Apps Script execution limits.
 
@@ -42,39 +42,41 @@ See **[walkthrough.md](walkthrough.md)** for the full step-by-step deployment gu
 
 ## Drive Folder Layout
 
+All folders should live inside a parent folder in your Drive — either in **My Drive** or a **Shared Drive**. The scripts reference each folder by its ID, so the location doesn't matter as long as you have access.
+
 ```
-Google Drive
-├── Staging/                  ← Ingestion scripts drop files here
-├── Notes/                    ← Parent destination for sorted files
-│   ├── Target/               ← Auto-created from filters.txt categories
-│   ├── Walmart/
-│   ├── Sift/
-│   ├── Juniper/
-│   ├── UKG/
-│   └── Misc/                 ← Catches files matching no filter
-├── Duplicates/               ← Files that already exist in their target
-├── Logs/                     ← Per-category log files (Target_log.txt, etc.)
-└── Filters/                  ← Contains filters.txt
+My Drive (or Shared Drive)
+└── Your Parent Folder/
+    ├── Staging/                  ← Ingestion scripts drop files here
+    ├── Notes/                    ← Parent destination for sorted files
+    │   ├── <Category A>/         ← Auto-created from filters.txt categories
+    │   ├── <Category B>/
+    │   ├── <Category C>/
+    │   └── Misc/                 ← Catches files matching no filter
+    ├── Duplicates/               ← Files that already exist in their target
+    ├── Logs/                     ← Per-category log files (<Category>_log.txt, etc.)
+    └── Filters/                  ← Contains filters.txt
 ```
 
 ## How filters.txt Works
+
+The included `filters.txt` is an example only. Categories and keywords are entirely up to you — they can be company names, project names, topics, people, or anything else that appears in your filenames.
 
 ```ini
 # Lines starting with # are comments
 # Blank lines are ignored
 
-[Target]
-target
-tgt
-bullseye
+[Category A]
+keyword1
+keyword2
+abbreviation
 
-[Walmart]
-walmart
-wmt
-sams club
+[Category B]
+keyword3
+keyword4
 ```
 
-Each `[Category]` header maps to a subfolder name. Keywords underneath are matched as case-insensitive substrings against filenames. A file named `TGT_Q3_Review.pdf` would match the `tgt` keyword and get moved to the `Target/` folder. First matching category wins, and anything unmatched goes to `Misc/`.
+Each `[Category]` header maps to a subfolder name that gets auto-created in your destination folder. Keywords underneath are matched as case-insensitive substrings against filenames. For example, if you have a `[Acme]` category with the keyword `acme`, a file named `Acme_Q3_Review.pdf` would match and get moved to the `Acme/` folder. First matching category wins, and anything unmatched goes to `Misc/`. See `filters.txt` for a working example with sample categories.
 
 ## Requirements
 
@@ -84,4 +86,4 @@ Each `[Category]` header maps to a subfolder name. Keywords underneath are match
 
 ## License
 
-MIT
+JSac
