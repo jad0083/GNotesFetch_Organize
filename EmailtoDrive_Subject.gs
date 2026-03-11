@@ -8,7 +8,7 @@
  
 function downloadEverythingbySubject() {
   // --- CONFIGURATION ---
-  const FOLDER_ID = '<your-staging-folder-id>';            // e.g. '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY' — same staging folder used by EmailtoDrive_Sender.gs
+  const FOLDER_ID = '<your-staging-folder-id>';            // e.g. '1aBcDeFgHiJkLmNoPqRsTuVwXyZ012345' — same staging folder used by EmailtoDrive_Sender.gs
 
   // List your subject keywords here.
   // It will find emails containing ANY of these (Case-Insensitive).

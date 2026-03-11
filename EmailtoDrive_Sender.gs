@@ -8,7 +8,7 @@
  */
 function downloadEverythingFromSender() {
   // --- CONFIGURATION ---
-  const FOLDER_ID = '<your-staging-folder-id>';           // e.g. '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY' — the Drive folder where ingested files land before sorting
+  const FOLDER_ID = '<your-staging-folder-id>';           // e.g. '1aBcDeFgHiJkLmNoPqRsTuVwXyZ012345' — the Drive folder where ingested files land before sorting
   const SENDER_EMAIL = '<sender-email-address>';           // e.g. 'gemini-notes@google.com' — the email address to pull attachments and links from
   const PROCESSED_LABEL = '<gmail-label-name>';            // e.g. 'ProcessedSaved' — label applied to threads after processing (auto-created if missing)
   // ---------------------

@@ -37,6 +37,7 @@ The filter config uses a simple INI-style format, so adding new categories or ke
 ├── MoveandOrganize.gs        # Stage 2: Sort staging → categorized folders
 ├── filters.txt               # Category keyword config for the organizer
 ├── walkthrough.md            # Step-by-step deployment guide
+├── PROJECT_SPEC.md           # Technical spec and architecture reference
 └── README.md
 ```
 
@@ -46,7 +47,7 @@ The filter config uses a simple INI-style format, so adding new categories or ke
 git clone https://github.com/jad0083/GNotesFetch_Organize.git
 ```
 
-Then follow **[walkthrough.md](walkthrough.md)** for the full step-by-step deployment guide covering Git setup, folder creation, script configuration, permissions, and scheduling.
+Then follow **[walkthrough.md](walkthrough.md)** for the full step-by-step deployment guide covering Git setup, folder creation, script configuration, permissions, and scheduling. For a deeper look at the architecture, config variables, and known limitations, see the **[project spec](PROJECT_SPEC.md)**.
 
 ## Drive Folder Layout
 
