@@ -14,6 +14,58 @@ Before starting, make sure you have:
 
 ---
 
+## Step 0: Set Up Git and Clone the Repo
+
+Before doing anything in Google Drive, get the project files onto your machine.
+
+### Install Git
+
+If you don't already have Git installed, download it from [git-scm.com](https://git-scm.com/downloads) and run the installer. To verify it's installed, open a terminal (Terminal on Mac/Linux, Command Prompt or PowerShell on Windows) and run:
+
+```bash
+git --version
+```
+
+You should see something like `git version 2.x.x`. If you get an error, restart your terminal and try again — or revisit the installer.
+
+### Configure Git (first time only)
+
+If this is your first time using Git, set your name and email. These are attached to your commits and don't need to match your GitHub account:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+```
+
+### Clone the repository
+
+Navigate to the directory where you want to keep the project, then clone it:
+
+```bash
+cd ~/Documents
+git clone https://github.com/jad0083/GNotesFetch_Organize.git
+cd GNotesFetch_Organize
+```
+
+This creates a `GNotesFetch_Organize` folder with all the script files, the example `filters.txt`, and this walkthrough. You'll copy the contents of these files into Google Apps Script in Step 4.
+
+If you prefer SSH over HTTPS (and have SSH keys configured with GitHub):
+
+```bash
+git clone git@github.com:jad0083/GNotesFetch_Organize.git
+```
+
+### Staying up to date
+
+To pull the latest changes later:
+
+```bash
+cd ~/Documents/GNotesFetch_Organize
+git pull
+```
+
+---
+
 ## Step 1: Create the Drive Folder Structure
 
 First, choose a parent folder in Google Drive where everything will live. This can be anywhere — inside **My Drive** or on a **Shared Drive**. The scripts reference each folder by its ID, so the exact location doesn't matter as long as your Google account has access.

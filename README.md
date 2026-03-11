@@ -38,7 +38,11 @@ The filter config uses a simple INI-style format, so adding new categories or ke
 
 ## Quick Start
 
-See **[walkthrough.md](walkthrough.md)** for the full step-by-step deployment guide covering folder setup, script configuration, permissions, and scheduling.
+```bash
+git clone https://github.com/jad0083/GNotesFetch_Organize.git
+```
+
+Then follow **[walkthrough.md](walkthrough.md)** for the full step-by-step deployment guide covering Git setup, folder creation, script configuration, permissions, and scheduling.
 
 ## Drive Folder Layout
 
