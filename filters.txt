@@ -1,0 +1,41 @@
+# ============================================
+# filters.txt — Category Filters for MoveandOrganize.gs
+# ============================================
+#
+# FORMAT:
+#   [Category Name]    <-- creates/matches a subfolder in the destination
+#   keyword            <-- case-insensitive substring match against filename
+#
+# RULES:
+#   - First matching category wins (order matters)
+#   - Matching is case-insensitive: "budget" matches "Q3_Budget_Final.pdf"
+#   - Lines starting with # are comments
+#   - Blank lines are ignored
+#   - Files matching no keyword go to "Misc" (the UNSORTED_NAME in the script)
+#
+# ============================================
+
+[Target]
+target
+tgt
+bullseye
+
+[Walmart]
+walmart
+wmt
+sams club
+sam's club
+
+[Sift]
+sift
+sift science
+
+[Juniper]
+juniper
+jnpr
+junos
+
+[UKG]
+ukg
+kronos
+ultipro

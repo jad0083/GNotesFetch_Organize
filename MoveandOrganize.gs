@@ -10,14 +10,14 @@
  */
 function moveStagingtoNotesV2() {
   // --- CONFIGURATION ---
-  const SOURCE_FOLDER_ID  = '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY';
-  const PARENT_DEST_ID    = '1XX6gLGtXEtzcHNcVll3Wor_HYNFr6EA9';
-  const LOG_FOLDER_ID     = '1OLI7XOiViTYFeijEr8HKMWflASzJK4Hz';
-  const FILTER_FOLDER_ID  = '1lSZ3-bkwLrt4c-jUEd3JX9XaNg6y5k1Z';
-  const DUP_FOLDER_ID     = '1ZaX8nrkvuArsFLJfRl8rjEJKgjfvQCy9'; // Folder for duplicates
-  
-  const FILTER_FILE_NAME  = 'filters.txt';
-  const UNSORTED_NAME     = 'Misc';
+  const SOURCE_FOLDER_ID  = '<your-staging-folder-id>';    // e.g. '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY' — same staging folder where ingestion scripts drop files
+  const PARENT_DEST_ID    = '<your-notes-folder-id>';      // e.g. '1XX6gLGtXEtzcHNcVll3Wor_HYNFr6EA9' — parent folder where categorized subfolders are created
+  const LOG_FOLDER_ID     = '<your-logs-folder-id>';       // e.g. '1OLI7XOiViTYFeijEr8HKMWflASzJK4Hz' — folder for per-category log files
+  const FILTER_FOLDER_ID  = '<your-filters-folder-id>';    // e.g. '1lSZ3-bkwLrt4c-jUEd3JX9XaNg6y5k1Z' — folder containing filters.txt
+  const DUP_FOLDER_ID     = '<your-duplicates-folder-id>'; // e.g. '1ZaX8nrkvuArsFLJfRl8rjEJKgjfvQCy9' — folder for files that already exist in their target
+
+  const FILTER_FILE_NAME  = 'filters.txt';                 // Name of the filter config file in the filters folder
+  const UNSORTED_NAME     = 'Misc';                        // Subfolder name for files matching no filter keyword
   // ---------------------
 
   console.log("--- Starting Execution: " + new Date().toLocaleString() + " ---");

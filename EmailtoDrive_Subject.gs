@@ -8,13 +8,13 @@
  
 function downloadEverythingbySubject() {
   // --- CONFIGURATION ---
-  const FOLDER_ID = '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY'; 
-  
-  // List your subject keywords here. 
+  const FOLDER_ID = '<your-staging-folder-id>';            // e.g. '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY' — same staging folder used by EmailtoDrive_Sender.gs
+
+  // List your subject keywords here.
   // It will find emails containing ANY of these (Case-Insensitive).
-  const SUBJECT_KEYWORDS = ['Document shared with you:'];
-  
-  const PROCESSED_LABEL = 'ProcessedSaved';
+  const SUBJECT_KEYWORDS = ['<subject-keyword-1>'];        // e.g. ['Document shared with you:', 'Invoice', 'Weekly Report'] — add as many as needed
+
+  const PROCESSED_LABEL = '<gmail-label-name>';            // e.g. 'ProcessedSaved' — should match the label used in EmailtoDrive_Sender.gs
   // ---------------------
 
   try {

@@ -8,9 +8,9 @@
  */
 function downloadEverythingFromSender() {
   // --- CONFIGURATION ---
-  const FOLDER_ID = '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY'; 
-  const SENDER_EMAIL = 'gemini-notes@google.com'; 
-  const PROCESSED_LABEL = 'ProcessedSaved';
+  const FOLDER_ID = '<your-staging-folder-id>';           // e.g. '1qgiSlFnzKO5Q1sRE00xi2Vzt3VGYL_qY' — the Drive folder where ingested files land before sorting
+  const SENDER_EMAIL = '<sender-email-address>';           // e.g. 'gemini-notes@google.com' — the email address to pull attachments and links from
+  const PROCESSED_LABEL = '<gmail-label-name>';            // e.g. 'ProcessedSaved' — label applied to threads after processing (auto-created if missing)
   // ---------------------
 
   try {
