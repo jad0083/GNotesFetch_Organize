@@ -20,13 +20,35 @@ Before doing anything in Google Drive, get the project files onto your machine.
 
 ### Install Git
 
-If you don't already have Git installed, download it from [git-scm.com](https://git-scm.com/downloads) and run the installer. To verify it's installed, open a terminal (Terminal on Mac/Linux, Command Prompt or PowerShell on Windows) and run:
+If you don't already have Git installed, pick the method that matches your OS:
+
+**Mac (Homebrew):**
+
+```bash
+brew install git
+```
+
+If you don't have Homebrew yet, install it first from [brew.sh](https://brew.sh).
+
+**Windows (Chocolatey):**
+
+```powershell
+choco install git
+```
+
+If you don't have Chocolatey yet, install it first from [chocolatey.org/install](https://chocolatey.org/install). Run the command in an elevated (Administrator) PowerShell.
+
+**Any platform (manual installer):**
+
+Download from [git-scm.com/downloads](https://git-scm.com/downloads) and run the installer.
+
+To verify Git is installed, open a terminal (Terminal on Mac/Linux, Command Prompt or PowerShell on Windows) and run:
 
 ```bash
 git --version
 ```
 
-You should see something like `git version 2.x.x`. If you get an error, restart your terminal and try again — or revisit the installer.
+You should see something like `git version 2.x.x`. If you get an error, restart your terminal and try again.
 
 ### Configure Git (first time only)
 
@@ -37,9 +59,62 @@ git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 ```
 
+### Authenticate with GitHub
+
+To clone private repos or push changes, you need to authenticate with GitHub. The easiest way is using the GitHub CLI (`gh`).
+
+**Install the GitHub CLI:**
+
+```bash
+# Mac (Homebrew)
+brew install gh
+
+# Windows (Chocolatey)
+choco install gh
+```
+
+Or download from [cli.github.com](https://cli.github.com).
+
+**Log in:**
+
+```bash
+gh auth login
+```
+
+This walks you through an interactive flow — select **GitHub.com**, choose your preferred protocol (**HTTPS** is recommended for most users), and authenticate via browser. Once complete, Git commands like `clone`, `push`, and `pull` will work automatically.
+
+To verify you're logged in:
+
+```bash
+gh auth status
+```
+
+**Alternative: Personal Access Token (without `gh`)**
+
+If you'd rather not install the GitHub CLI, you can authenticate over HTTPS using a Personal Access Token (PAT):
+
+1. Go to [github.com/settings/tokens](https://github.com/settings/tokens)
+2. Click **Generate new token (classic)**
+3. Give it a name, set an expiration, and check the **repo** scope
+4. Click **Generate token** and copy the token
+
+The next time Git prompts you for a password (during `clone` or `push`), paste the token instead of your GitHub password.
+
+To avoid re-entering it every time, enable Git's credential store:
+
+```bash
+git config --global credential.helper store
+```
+
+**Alternative: SSH keys**
+
+If you prefer SSH, follow GitHub's guide to [generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and [add it to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). Then use the SSH clone URL instead of HTTPS.
+
 ### Clone the repository
 
 Navigate to the directory where you want to keep the project, then clone it:
+
+**HTTPS (recommended):**
 
 ```bash
 cd ~/Documents
@@ -47,13 +122,15 @@ git clone https://github.com/jad0083/GNotesFetch_Organize.git
 cd GNotesFetch_Organize
 ```
 
-This creates a `GNotesFetch_Organize` folder with all the script files, the example `filters.txt`, and this walkthrough. You'll copy the contents of these files into Google Apps Script in Step 4.
-
-If you prefer SSH over HTTPS (and have SSH keys configured with GitHub):
+**SSH (if configured):**
 
 ```bash
+cd ~/Documents
 git clone git@github.com:jad0083/GNotesFetch_Organize.git
+cd GNotesFetch_Organize
 ```
+
+This creates a `GNotesFetch_Organize` folder with all the script files, the example `filters.txt`, and this walkthrough. You'll copy the contents of these files into Google Apps Script in Step 4.
 
 ### Staying up to date
 
