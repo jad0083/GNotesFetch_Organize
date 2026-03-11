@@ -6,6 +6,8 @@ A Google Apps Script pipeline that automatically extracts email attachments and 
 
 If you use services like Google Gemini Notes, shared Docs, or any workflow that sends files and links to your inbox, those files pile up fast. They sit buried in email threads, and the only way to get them into Drive is to open each one, click download or "Add to Drive," and manually drag it into the right folder. Do that across dozens of emails a week and it becomes a chore you stop doing — which means important docs get lost in your inbox.
 
+This is especially critical for organizations on Google Workspace. Many orgs enforce a 90-day retention policy for meeting recordings and Gemini-generated meeting notes — after that window, they're automatically deleted. If you haven't manually saved them to Drive before the retention period expires, they're gone for good. Waiting around to do it by hand doesn't scale.
+
 There's no native way in Gmail or Drive to say "grab everything from this sender" or "anything with this subject line, pull the attachments and copy the linked Docs, then file them by topic." Filters can label and archive, but they can't touch Drive.
 
 ## What This Solves
@@ -90,4 +92,4 @@ Each `[Category]` header maps to a subfolder name that gets auto-created in your
 
 ## License
 
-JSac
+J.Sacramento
